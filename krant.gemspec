@@ -24,4 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'combustion', '~> 0.7.0'
   spec.add_development_dependency 'sqlite3', '~> 1.3'
   spec.add_development_dependency 'capybara', '~> 2.15'
+  spec.add_development_dependency 'rails'
+
+  spec.add_runtime_dependency 'activeadmin', '~> 1.x'
 end

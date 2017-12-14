@@ -16,10 +16,9 @@ And then execute:
 
 Include javascripts and stylesheets:
 
-    # app/assets/javascripts/active_admin.js
-    //= require krant/active_admin
-
     # app/assets/stylesheets/active_admin.scss
+
+    // After active_admin/base has been imported
     @import "krant/active_admin";
 
 Install migrations and migrate:
@@ -27,19 +26,35 @@ Install migrations and migrate:
     $ bin/rake krant:install:migrations
     $ bin/rake db:migrate
 
-## Usage
-
 ### Display Broadcast Messages
 
 Configure the Active Admin view component and add the broadcast
 messages admin to the load path:
 
     # config/initializers/active_admin.rb
-    ActiveAdmin.application.load_paths.unshift(Krant::ActiveAdmin.load_path)
+    ActiveAdmin.application.load_paths.unshift(Krant.active_admin_load_path)
 
     ActiveAdmin.setup do |config|
-      config.view_factory.title_bar = Krant::ActiveAdmin.append_broadcast_messages(ActiveAdmin::TitleBar)
+      config.view_factory.header = Krant::Views::HeaderWithBroadcastMessages
     end
+
+Messages with different translations can now be configured via the
+admin interface and will be displayed once marked as active.
+
+Configure for which locales you want to enter broadcast message
+translations. The corresponding text fields will be displayed:
+
+    # config/initializers/krant.rb
+    Krant.broadcast_message_locales = [:en, :fr, :es]
+
+The color of the broadcast message bar can be configured via SCSS
+
+    # app/assets/stylesheets/active_admin.scss
+
+    $krant-broadcast-message-bar-color: #fff3bd;
+    $krant-broadcast-message-bar-border-color: transparent;
+
+    @import "krant/active_admin";
 
 ### Displaying a News Page
 

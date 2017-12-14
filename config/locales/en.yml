@@ -1,0 +1,20 @@
+en:
+  krant:
+    admin:
+      broadcast_messages:
+        text_translation_label: "Text (%{locale_name}):"
+  activerecord:
+    models:
+      # Required for ActiveAdmin navigation
+      broadcast_message:
+        one: "Broadcast Message"
+        other: "Broadcast Messages"
+      "krant/broadcast_message":
+        one: "Broadcast Message"
+        other: "Broadcast Messages"
+    attributes:
+      "krant/broadcast_message":
+        text: "Text"
+        active: "Active"
+        created_at: "Created at"
+        updated_at: "Updated at"

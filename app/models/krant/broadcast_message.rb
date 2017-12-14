@@ -3,6 +3,8 @@ module Krant
   class BroadcastMessage < ActiveRecord::Base
     has_many(:translations, class_name: 'BroadcastMessageTranslation')
 
+    accepts_nested_attributes_for(:translations)
+
     scope(:active, -> { where(active: true) })
   end
 end

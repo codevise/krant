@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'sqlite3', '~> 1.3'
   spec.add_development_dependency 'capybara', '~> 2.15'
   spec.add_development_dependency 'factory_bot_rails', '~> 4.8'
+  spec.add_development_dependency 'domino', '~> 0.7.0'
 
   spec.add_runtime_dependency 'activeadmin', '~> 1.x'
   spec.add_runtime_dependency 'rails', '~> 4.2'

@@ -16,6 +16,9 @@ module Krant
       @scope = scope
     end
 
+    # @api private
+    attr_reader :scope
+
     # Define a new item that will be stored in the database on next
     # `persist` call. Usually called from an initializer, either in
     # the main application or a plugin gem.
@@ -50,13 +53,15 @@ module Krant
       @templates[name.to_s] = attributes
     end
 
-    # Create database records for each new news item. Together with
-    # the "last seen" timestamp of a user, the corresponding creation
-    # timestamps will be used to determine seen/unseen state of each
-    # news item.
+    # @api private
     def persist
-      @templates.keys.each do |name|
-        NewsItem.find_or_create_by(scope: @scope, name: name)
+      @templates.each do |name, template|
+        NewsItem.find_or_create_by(scope: @scope, name: name) do |news_item|
+          if block_given?
+            news_item.template = template
+            yield news_item
+          end
+        end
       end
     end
 

@@ -218,5 +218,40 @@ module Krant
         expect(LastSeenState.count).to eq(1)
       end
     end
+
+    describe '#persist' do
+      it 'yields new news items' do
+        news = Krant::News.about('my_app')
+        news.item('some_feature', {})
+
+        names = []
+        news.persist do |item|
+          names << item.name
+        end
+
+        expect(names).to eq(['some_feature'])
+      end
+
+      it 'yields allows accessing template attributes' do
+        news = Krant::News.about('my_app')
+        news.item('some_feature', title: { en: 'title' })
+
+        titles = []
+        news.persist do |item|
+          titles << item.title
+        end
+
+        expect(titles).to eq(['title'])
+      end
+
+      it 'does not yield if item already persisted' do
+        news = Krant::News.about('my_app')
+        news.item('some_feature', {})
+
+        news.persist
+
+        expect { |probe| news.persist(&probe) }.not_to yield_control
+      end
+    end
   end
 end

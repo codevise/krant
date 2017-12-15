@@ -107,18 +107,15 @@ Create news items for new features:
                        de: 'Text mit [Markdown](http://http://commonmark.org/).',
                      })
 
-Define a Rake tasks to store news items in the database:
+Define a Rake tasks to persists news items in the database:
 
     # Rakefile
-    namespace :my_app do
-      task persist_news: :environment do
-        MyApp.news.persist
-      end
-    end
+    require 'krant/tasks'
+    Krant::Trasks.install { MyApp.news }
 
-and run it after each deploy:
+and run the defined task after each deploy:
 
-    $ bin/rake my_app:news:persist
+    $ bin/rake news:persist
 
 ## Development
 

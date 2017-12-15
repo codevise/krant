@@ -127,6 +127,21 @@ After checking out the repo, run `bin/setup` to install
 dependencies. You can also run `bin/console` for an interactive prompt
 that will allow you to experiment.
 
+To run the tests install bundled gems and invoke RSpec:
+
+```
+$ bundle
+$ bundle exec rspec
+```
+
+The test suite can be run against different versions of Rails and
+Active Admin (see `Appraisals` file):
+
+```
+$ appraisal install
+$ appraisal rspec
+```
+
 To install this gem onto your local machine, run `bundle exec rake
 install`. To release a new version, update the version number in
 `version.rb`, and then run `bundle exec rake release`, which will

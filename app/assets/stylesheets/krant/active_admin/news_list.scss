@@ -1,3 +1,4 @@
+$krant-news-list-item-marker-color: #eee !default;
 $krant-unseen-news-list-item-marker-color: #63a0e8 !default;
 $krant-unseen-news-list-item-marker-width: 2px !default;
 $krant-unseen-news-list-item-padding: 1em !default;
@@ -8,7 +9,7 @@ $krant-unseen-news-list-item-background-color: #eee !default;
 }
 
 .krant-news-list-item {
-  border-left: solid $krant-unseen-news-list-item-marker-width transparent;
+  border-left: solid $krant-unseen-news-list-item-marker-width $krant-news-list-item-marker-color;
   margin-left: -$krant-unseen-news-list-item-padding;
   padding: 0 $krant-unseen-news-list-item-padding;
 

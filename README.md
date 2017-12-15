@@ -22,7 +22,7 @@ $ bundle
 Include javascripts and stylesheets:
 
 ```scss
-# app/assets/stylesheets/active_admin.scss
+// app/assets/stylesheets/active_admin.scss
 
 // After active_admin/base has been imported
 @import "krant/active_admin";
@@ -63,7 +63,7 @@ admin interface and will be displayed once marked as active.
 The color of the broadcast message bar can be configured via SCSS
 
 ```scss
-# app/assets/stylesheets/active_admin.scss
+// app/assets/stylesheets/active_admin.scss
 
 $krant-broadcast-message-bar-color: #fff3bd;
 $krant-broadcast-message-bar-border-color: transparent;

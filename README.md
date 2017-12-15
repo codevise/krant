@@ -112,6 +112,7 @@ can [:read, :seen], ActiveAdmin::Page, name: 'news'
 Add a link to the news page into the utility navigation:
 
 ```ruby
+# config/initializers/active_admin.rb
 config.namespace :admin do |admin|
   admin.build_menu :utility_navigation do |menu|
     Krant.add_active_admin_news_menu_item_to(menu,

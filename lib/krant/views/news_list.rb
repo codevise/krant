@@ -7,6 +7,8 @@ module Krant
 
       # @param news [Krant::News] News collection to take news from.
       def build(news)
+        super(class: 'krant-news-list')
+
         news.all(for_user: current_active_admin_user).each do |news_item|
           item(news_item)
         end

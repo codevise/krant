@@ -18,6 +18,8 @@ Gem::Specification.new do |spec|
   end
   spec.require_paths = ['lib']
 
+  spec.required_ruby_version = '~> 2.1'
+
   spec.add_development_dependency 'bundler', '~> 1.14'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec-rails', '~> 3.6'
@@ -26,7 +28,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'capybara', '~> 2.15'
   spec.add_development_dependency 'factory_bot_rails', '~> 4.8'
   spec.add_development_dependency 'domino', '~> 0.7.0'
+  spec.add_development_dependency 'timecop', '~> 0.7.1'
 
   spec.add_runtime_dependency 'activeadmin', '~> 1.x'
   spec.add_runtime_dependency 'rails', '~> 4.2'
+  spec.add_runtime_dependency 'kramdown', '~> 1.5'
 end

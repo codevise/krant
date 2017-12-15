@@ -7,4 +7,7 @@ ActiveRecord::Schema.define do
     t.references :author, polymorphic: true
     t.timestamps null: false
   end
+
+  create_table(:users, force: true) do |t|
+  end
 end

@@ -38,14 +38,14 @@ messages admin to the load path:
       config.view_factory.header = Krant::Views::HeaderWithBroadcastMessages
     end
 
-Messages with different translations can now be configured via the
-admin interface and will be displayed once marked as active.
-
 Configure for which locales you want to enter broadcast message
 translations. The corresponding text fields will be displayed:
 
     # config/initializers/krant.rb
     Krant.broadcast_message_locales = [:en, :fr, :es]
+
+Messages with different translations can now be configured via the
+admin interface and will be displayed once marked as active.
 
 The color of the broadcast message bar can be configured via SCSS
 
@@ -60,44 +60,65 @@ The color of the broadcast message bar can be configured via SCSS
 
 Provide a news collection:
 
-    # lib/my_library.rb
-    module MyLibrary
+    # lib/my_app.rb
+    module MyApp
       def self.news
-        @news ||= Krant.news_for(:my_library)
+        @news ||= Krant::News.about(MyApp)
       end
     end
+
+The passed parameter is only used as a namespace for item names. You
+can also pass a string. Passing a constant is an easy way to ensure
+uniqness.
 
 Add a news page:
 
     # app/admins/news.rb
-    ActiveAdmin.register_page 'News' do
-      menu priority: 100, label: 'News'
+    require 'krant/views/news_list'
+
+    ActiveAdmin.register_page 'news' do
+      menu false
 
       content title: 'News' do
-        krant_news(MyLibrary.news)
+        krant_news_list(MyApp.news)
+      end
+    end
+
+Add a link to the news page into the utility navigation:
+
+    config.namespace :admin do |admin|
+      admin.build_menu :utility_navigation do |menu|
+        Krant.add_active_admin_news_menu_item_to(menu,
+                                                 news: MyApp.news,
+                                                 url: -> { admin_news_path })
       end
     end
 
 Create news items for new features:
 
     # config/initializers/news/some_new_feature.rb
-    MyLibrary.news.item(:some_new_feature,
-                        title: {
-                          en: '',
-                          de: ''
-                        },
-                        body: {
-                          en: '',
-                          de: ''
-                        },
-                        link: {
-                          en: '',
-                          de: ''
-                        })
+    MyApp.news.item(:some_new_feature,
+                     title: {
+                       en: 'Some title',
+                       de: 'Ein Titel'
+                     },
+                     body: {
+                       en: 'Some text using [Markdown](http://http://commonmark.org/).',
+                       de: 'Text mit [Markdown](http://http://commonmark.org/).',
+                     })
 
-After deploy invoke the rake task to store news items in the database:
+Define a Rake tasks to store news items in the database:
 
-    $ bin/rake krant:news:update
+    # Rakefile
+    namespace :my_app do
+      task persist_news: :environment do
+        MyApp.news.persist
+      end
+    end
+
+and run it after each deploy:
+
+    $ bin/rake my_app:news:persist
 
 ## Development
 

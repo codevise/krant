@@ -5,6 +5,8 @@ Combustion.initialize!(:active_record, :action_controller, :action_view)
 
 require 'rspec/rails'
 require 'support/factory_bot'
+require 'support/current_user'
+require 'support/test_news'
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = true

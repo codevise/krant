@@ -1,4 +1,5 @@
 require 'active_admin'
+require 'kramdown'
 
 module Krant
   # Rails integration

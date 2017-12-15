@@ -3,6 +3,9 @@ de:
     admin:
       broadcast_messages:
         text_translation_label: "Text (%{locale_name}):"
+      news_menu_item:
+        unseen: "Neuigkeiten*"
+        no_unseen: "Neuigkeiten"
   activerecord:
     models:
       # Required for ActiveAdmin navigation

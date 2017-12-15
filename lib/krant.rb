@@ -1,5 +1,8 @@
 require 'krant/engine'
+require 'krant/news'
 require 'krant/version'
+require 'krant/views/header_with_broadcast_messages'
+require 'krant/views/news_list'
 
 # Global settings
 module Krant

@@ -74,8 +74,6 @@ uniqness.
 Add a news page:
 
     # app/admins/news.rb
-    require 'krant/views/news_list'
-
     ActiveAdmin.register_page 'news' do
       menu false
 

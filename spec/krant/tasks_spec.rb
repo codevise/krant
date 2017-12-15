@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+require 'krant/tasks'
+
 module Krant
   RSpec.describe Tasks do
     before(:each) do

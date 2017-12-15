@@ -1,2 +1,4 @@
 require 'bundler/gem_tasks'
-task :default => :spec
+
+require 'semmy'
+Semmy::Tasks.install

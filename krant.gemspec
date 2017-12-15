@@ -29,6 +29,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'capybara', '~> 2.15'
   spec.add_development_dependency 'factory_bot_rails', '~> 4.8'
   spec.add_development_dependency 'domino', '~> 0.7.0'
+  spec.add_development_dependency 'semmy', '~> 1.0'
   spec.add_development_dependency 'timecop', '~> 0.7.1'
 
   spec.add_runtime_dependency 'activeadmin', '~> 1.x'

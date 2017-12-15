@@ -1,6 +1,6 @@
 # Krant
 
-(https://badge.fury.io/rb/krant.svg)](http://badge.fury.io/rb/krant)
+[![Gem Version](https://badge.fury.io/rb/krant.svg)](http://badge.fury.io/rb/krant)
 [![Build Status](https://travis-ci.org/codevise/krant.svg?branch=master)](https://travis-ci.org/codevise/krant)
 
 Display app news and broadcast messages in Active Admin.

@@ -75,12 +75,18 @@ Add a news page:
 
     # app/admins/news.rb
     ActiveAdmin.register_page 'news' do
-      menu false
+      Krant.active_admin_news_page(self)
 
       content title: 'News' do
         krant_news_list(MyApp.news)
       end
     end
+
+If you are using the CanCan authorization adapter, grant access to the
+page and its `seen` action:
+
+    # app/models/ability.rb
+    can [:read, :seen], ActiveAdmin::Page, name: 'news'
 
 Add a link to the news page into the utility navigation:
 

@@ -26,7 +26,7 @@ RSpec.feature 'displaying news menu item' do
     TestNews.news.item('some_item', {})
     TestNews.news.persist
 
-    visit(admin_news_path)
+    page.driver.post(admin_news_seen_path)
     visit(admin_dashboard_path)
 
     expect(page.html).to have_selector('.krant-news-menu-item-no-unseen')

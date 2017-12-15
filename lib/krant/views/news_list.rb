@@ -13,7 +13,7 @@ module Krant
           item(news_item)
         end
 
-        news.seen_by!(current_user)
+        script raw('jQuery.post(location.pathname + "/seen")')
       end
 
       private

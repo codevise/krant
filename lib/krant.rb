@@ -40,4 +40,18 @@ module Krant
              html_options: { class: 'krant-news-menu-item krant-news-menu-item-no-unseen' },
              **options)
   end
+
+  # Apply default settings to news page.
+  #
+  # @param page [ActiveAdmin::PageDSL] The admin page.
+  #
+  # @param news [Proc] Proc returing the news collection.
+  def self.active_admin_news_page(page, news:)
+    page.menu(false)
+
+    page.page_action(:seen, method: [:post]) do
+      news.call.seen_by!(current_active_admin_user)
+      render text: ''
+    end
+  end
 end

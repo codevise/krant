@@ -1,7 +1,7 @@
 ENV['RAILS_ENV'] ||= 'test'
 
 require 'combustion'
-Combustion.initialize!(:active_record, :action_controller, :action_view)
+Combustion.initialize!(:active_record, :action_controller, :action_view, :sprockets)
 
 require 'rspec/rails'
 require 'support/factory_bot'

@@ -1,4 +1,4 @@
-class CreateKrantLastSeenStates < ActiveRecord::Migration
+class CreateKrantLastSeenStates < ActiveRecord::Migration[4.2]
   def change
     create_table :krant_last_seen_states do |t|
       t.string :scope

@@ -51,7 +51,7 @@ module Krant
 
     page.page_action(:seen, method: [:post]) do
       news.call.seen_by!(current_active_admin_user)
-      render text: ''
+      render plain: ''
     end
   end
 end

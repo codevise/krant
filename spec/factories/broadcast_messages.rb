@@ -1,11 +1,11 @@
 FactoryBot.define do
   factory(:broadcast_message, class: Krant::BroadcastMessage) do
     trait :active do
-      active true
+      active { true }
     end
 
     transient do
-      text_translations({})
+      text_translations { {} }
     end
 
     after(:create) do |broadcast_message, evaluator|

@@ -1,4 +1,4 @@
-class CreateKrantBroadcastMessageTranslations < ActiveRecord::Migration
+class CreateKrantBroadcastMessageTranslations < ActiveRecord::Migration[4.2]
   def change
     create_table :krant_broadcast_message_translations do |t|
       t.belongs_to(:broadcast_message,

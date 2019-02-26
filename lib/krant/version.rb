@@ -1,3 +1,3 @@
 module Krant
-  VERSION = '0.2.0.dev'.freeze
+  VERSION = '1.0.0'.freeze
 end

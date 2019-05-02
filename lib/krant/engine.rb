@@ -1,5 +1,7 @@
 require 'active_admin'
 require 'kramdown'
+require 'redcarpet'
+require 'redcarpet/render_strip'
 
 module Krant
   # Rails integration

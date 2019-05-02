@@ -13,7 +13,8 @@ module Krant
           broadcast_message.translations.each do |t|
             div class: 'krant-broadcast-messages-table-text' do
               span "#{t.locale}:", class: 'krant-broadcast-messages-table-text-locale'
-              span t.text, class: 'krant-broadcast-messages-table-text-translation'
+              span Redcarpet::Markdown.new(Redcarpet::Render::StripDown).render(t.text),
+                   class: 'krant-broadcast-messages-table-text-translation'
             end
           end
         end

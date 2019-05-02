@@ -27,5 +27,9 @@ $krant-broadcast-message-bar-border-color: #dedede !default;
     border-right: solid 1px $krant-broadcast-message-bar-border-color;
     padding: 10px $horizontal-page-margin;
     text-align: center;
+
+    p {
+      margin: 0;
+    }
   }
 }

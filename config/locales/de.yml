@@ -2,7 +2,7 @@ de:
   krant:
     admin:
       broadcast_messages:
-        text_translation_label: "Text (%{locale_name}):"
+        text_translation_label: "Text/Markdown (%{locale_name}):"
       news_menu_item:
         unseen: "Neuigkeiten*"
         no_unseen: "Neuigkeiten"
@@ -17,7 +17,7 @@ de:
         other: "Broadcast Nachrichten"
     attributes:
       "krant/broadcast_message":
-        text: "Text"
+        text: "Inhalt"
         active: "Aktiv"
         created_at: "Erstellt am"
         updated_at: "Geändert am"

@@ -78,5 +78,9 @@ module Dom
     def text
       node.text
     end
+
+    def html
+      node.native.to_s
+    end
   end
 end

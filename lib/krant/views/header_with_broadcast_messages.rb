@@ -10,7 +10,9 @@ module Krant
         div do
           TranslatedBroadcastMessage.active.each do |broadcast_message|
             div class: 'krant-broadcast-messages-bar' do
-              broadcast_message.text
+              Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
+                .render(broadcast_message.text)
+                .html_safe
             end
           end
         end

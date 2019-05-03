@@ -59,6 +59,7 @@ Krant.broadcast_message_locales = [:en, :fr, :es]
 
 Messages with different translations can now be configured via the
 admin interface and will be displayed once marked as active.
+Broadcast messages have full markdown support.
 
 The color of the broadcast message bar can be configured via SCSS
 
@@ -141,7 +142,7 @@ Define a Rake tasks to persists news items in the database:
 ```ruby
 # Rakefile
 require 'krant/tasks'
-Krant::Trasks.install { MyApp.news }
+Krant::Tasks.install { MyApp.news }
 ```
 
 and run the defined task after each deploy:

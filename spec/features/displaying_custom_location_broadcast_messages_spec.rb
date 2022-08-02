@@ -2,7 +2,7 @@ require 'rails_helper'
 
 require 'support/dominos'
 
-RSpec.feature 'displaying filtered broadcast messages' do
+RSpec.feature 'displaying custom location broadcast messages' do
   scenario 'displays active broadcast messages for location' do
     create(:broadcast_message,
            :active,
@@ -39,5 +39,27 @@ RSpec.feature 'displaying filtered broadcast messages' do
     broadcast_message_bars = Dom::BroadcastMessageBar.find_all
     expect(broadcast_message_bars.map(&:html).first)
       .to include('<strong>fat text</strong> and a <a href')
+  end
+
+  describe 'with custom wrapper' do
+    scenario 'renders wrapper' do
+      create(:broadcast_message,
+             :active,
+             location: 'custom',
+             text_translations: {
+               en: 'Message',
+               de: 'Nachricht'
+             })
+
+      visit(admin_custom_broadcast_message_location_with_custom_wrapper_path)
+
+      expect(page).to have_selector('.custom_wrapper .custom_item_class')
+    end
+
+    scenario 'does not render wrapper if no messages' do
+      visit(admin_custom_broadcast_message_location_with_custom_wrapper_path)
+
+      expect(page).not_to have_selector('.custom_wrapper')
+    end
   end
 end

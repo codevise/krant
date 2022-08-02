@@ -5,11 +5,6 @@ $krant-broadcast-message-bar-border-color: #dedede !default;
   &-table-text {
     white-space: nowrap;
 
-    &-locale,
-    &-translation {
-      display: inline-block;
-    }
-
     &-locale {
       font-weight: bold;
       min-width: 2em;

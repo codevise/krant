@@ -7,14 +7,14 @@ module Krant
       @text = text
     end
 
-    def self.active
-      Query.new.active
+    def self.active(location: nil)
+      Query.new.active(location)
     end
 
     # @api private
     class Query
-      def active
-        scope = BroadcastMessage.active
+      def active(location)
+        scope = BroadcastMessage.where(location: location).active
 
         scope = with_translation(scope, 'current_locale', I18n.locale)
         scope = with_translation(scope, 'default_locale', I18n.default_locale)

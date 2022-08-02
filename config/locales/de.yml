@@ -3,6 +3,7 @@ de:
     admin:
       broadcast_messages:
         text_translation_label: "Text/Markdown (%{locale_name}):"
+        default_location: "(Standard)"
       news_menu_item:
         unseen: "Neuigkeiten*"
         no_unseen: "Neuigkeiten"
@@ -19,5 +20,6 @@ de:
       "krant/broadcast_message":
         text: "Inhalt"
         active: "Aktiv"
+        location: "Anzeigeort"
         created_at: "Erstellt am"
         updated_at: "Geändert am"

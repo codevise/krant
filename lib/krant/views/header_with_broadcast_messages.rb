@@ -7,15 +7,7 @@ module Krant
 
       def build(*args)
         insert_tag(ActiveAdmin::Views::Header, *args)
-        div do
-          TranslatedBroadcastMessage.active.each do |broadcast_message|
-            div class: 'krant-broadcast-messages-bar' do
-              Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
-                .render(broadcast_message.text)
-                .html_safe
-            end
-          end
-        end
+        insert_tag(BroadcastMessageList)
       end
     end
   end

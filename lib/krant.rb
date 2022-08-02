@@ -2,6 +2,7 @@ require 'krant/base_page_patch'
 require 'krant/engine'
 require 'krant/news'
 require 'krant/version'
+require 'krant/views/broadcast_message_list'
 require 'krant/views/header_with_broadcast_messages'
 require 'krant/views/news_list'
 

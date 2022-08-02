@@ -65,6 +65,46 @@ module Krant
 
         expect(TranslatedBroadcastMessage.active).to be_empty
       end
+
+      it 'allows filtering by location' do
+        create(:broadcast_message,
+               :active,
+               text_translations: {
+                 de: 'Wichtige Nachricht',
+                 en: 'Important message'
+               })
+        create(:broadcast_message,
+               :active,
+               location: 'custom',
+               text_translations: {
+                 de: 'Andere Nachricht',
+                 en: 'Other message'
+               })
+
+        texts = TranslatedBroadcastMessage.active(location: 'custom').map(&:text)
+
+        expect(texts).to eq(['Other message'])
+      end
+
+      it 'filters messages with custom location by default' do
+        create(:broadcast_message,
+               :active,
+               text_translations: {
+                 de: 'Wichtige Nachricht',
+                 en: 'Important message'
+               })
+        create(:broadcast_message,
+               :active,
+               location: 'custom',
+               text_translations: {
+                 de: 'Andere Nachricht',
+                 en: 'Other message'
+               })
+
+        texts = TranslatedBroadcastMessage.active.map(&:text)
+
+        expect(texts).to eq(['Important message'])
+      end
     end
   end
 end

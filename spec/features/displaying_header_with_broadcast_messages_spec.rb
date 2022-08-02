@@ -20,6 +20,17 @@ RSpec.feature 'displaying header with broadcast messages' do
     expect(Dom::BroadcastMessageBar.find_all.to_a).to be_empty
   end
 
+  scenario 'does not display broadcast messages with custom location' do
+    create(:broadcast_message,
+           :active,
+           location: 'custom',
+           text_translations: { en: 'Some text', de: 'Etwas Text' })
+
+    visit(admin_dashboard_path)
+
+    expect(Dom::BroadcastMessageBar.find_all.to_a).to be_empty
+  end
+
   scenario 'renders markdown in broadcast messages' do
     create(:broadcast_message, :active, text_translations: {
       en: 'Some **fat text** and a [link](http://google.com)',

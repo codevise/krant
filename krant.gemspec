@@ -21,7 +21,6 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '~> 2.1'
 
   spec.add_development_dependency 'appraisal', '~> 2.2'
-  spec.add_development_dependency 'bundler', '~> 1.14'
   spec.add_development_dependency 'rake', '~> 12.3'
   spec.add_development_dependency 'rspec-rails', '~> 3.8'
   spec.add_development_dependency 'combustion', '~> 0.9.1'
@@ -31,9 +30,12 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'domino', '~> 0.11.0'
   spec.add_development_dependency 'semmy', '~> 1.0'
   spec.add_development_dependency 'timecop', '~> 0.9.1'
+  spec.add_development_dependency 'sassc', '~> 2.4'
+  spec.add_development_dependency 'sassc-rails', '~> 2.1'
 
   spec.add_runtime_dependency 'activeadmin', ['>= 1.0', '< 3']
   spec.add_runtime_dependency 'rails', '~> 5.1'
   spec.add_runtime_dependency 'kramdown', '~> 1.5'
   spec.add_runtime_dependency 'redcarpet', '~> 3.4'
+  spec.add_runtime_dependency 'sprockets', '< 4'
 end

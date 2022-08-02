@@ -1,3 +1,4 @@
+require 'krant/base_page_patch'
 require 'krant/engine'
 require 'krant/news'
 require 'krant/version'

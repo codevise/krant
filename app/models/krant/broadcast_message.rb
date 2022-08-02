@@ -6,5 +6,9 @@ module Krant
     accepts_nested_attributes_for(:translations)
 
     scope(:active, -> { where(active: true) })
+
+    def location=(value)
+      super(value.presence)
+    end
   end
 end

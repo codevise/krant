@@ -18,6 +18,8 @@ module Dom
         within(node) do
           fill_in_text_translations(options.fetch(:text, {}))
 
+          select(options[:location], from: 'Location') if options[:location]
+
           if options[:active]
             check 'broadcast_message_active'
           else
@@ -25,6 +27,12 @@ module Dom
           end
 
           find('[name="commit"]').click
+        end
+      end
+
+      def has_location_field?
+        within(node) do
+          has_selector?('[name="broadcast_message[location]"]')
         end
       end
 
@@ -41,6 +49,8 @@ module Dom
 
     class TableRow < Domino
       selector '.index_table tbody tr'
+
+      attribute :location, '.col-location'
 
       def edit_link
         within(node) do

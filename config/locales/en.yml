@@ -3,6 +3,7 @@ en:
     admin:
       broadcast_messages:
         text_translation_label: "Text/Markdown (%{locale_name}):"
+        default_location: "(Default)"
       news_menu_item:
         unseen: "What's new*"
         no_unseen: "What's new"
@@ -19,5 +20,6 @@ en:
       "krant/broadcast_message":
         text: "Content"
         active: "Active"
+        location: "Display Location"
         created_at: "Created at"
         updated_at: "Updated at"

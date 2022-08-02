@@ -13,6 +13,11 @@ module Krant
   mattr_accessor :broadcast_message_locales
   self.broadcast_message_locales = [:en, :de]
 
+  # Let admins choose custom locations for broadcast messages and
+  # render them using the krant_broadcast_message_list view component.
+  mattr_accessor :custom_broadcast_message_locations
+  self.custom_broadcast_message_locations = []
+
   # Unshift to Active Admin load path.
   def self.active_admin_load_path
     Dir[Krant::Engine.root.join('admin')].first

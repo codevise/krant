@@ -20,8 +20,14 @@ module Krant
         end
       end
       column :active
+
+      if Krant.custom_broadcast_message_locations.any?
+        column :location do |b|
+          b.location || I18n.t('krant.admin.broadcast_messages.default_location')
+        end
+      end
+
       column :updated_at
-      column :created_at
       actions
     end
 
@@ -29,9 +35,16 @@ module Krant
       f.inputs do
         f.input :active
 
+        if Krant.custom_broadcast_message_locations.any?
+          f.input :location,
+                  as: :select,
+                  collection: Krant.custom_broadcast_message_locations,
+                  include_blank: I18n.t('krant.admin.broadcast_messages.default_location')
+        end
+
         f.semantic_fields_for :translations do |t|
           t.input(:text,
-                  as: :string,
+                  as: :text,
                   label: I18n.t('krant.admin.broadcast_messages.text_translation_label',
                                 locale_name: t.object.locale))
           t.input :locale, as: :hidden
@@ -50,7 +63,13 @@ module Krant
 
     controller do
       def permitted_params
-        params.permit(broadcast_message: [:active, translations_attributes: [:id, :text, :locale]])
+        params.permit(
+          broadcast_message: [
+            :active,
+            :location,
+            translations_attributes: [:id, :text, :locale]
+          ]
+        )
       end
     end
   end

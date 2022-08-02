@@ -21,7 +21,6 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '~> 2.1'
 
   spec.add_development_dependency 'appraisal', '~> 2.2'
-  spec.add_development_dependency 'bundler', '~> 1.14'
   spec.add_development_dependency 'rake', '~> 12.3'
   spec.add_development_dependency 'rspec-rails', '~> 3.8'
   spec.add_development_dependency 'combustion', '~> 0.9.1'

@@ -33,8 +33,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'sassc', '~> 2.4'
   spec.add_development_dependency 'sassc-rails', '~> 2.1'
 
-  spec.add_runtime_dependency 'activeadmin', ['>= 1.0', '< 3']
-  spec.add_runtime_dependency 'rails', '~> 5.1'
+  spec.add_runtime_dependency 'activeadmin', ['>= 1.0', '< 4']
+  spec.add_runtime_dependency 'rails', '>= 5.1'
   spec.add_runtime_dependency 'kramdown', '~> 1.5'
   spec.add_runtime_dependency 'redcarpet', '~> 3.4'
   spec.add_runtime_dependency 'sprockets', '< 4'

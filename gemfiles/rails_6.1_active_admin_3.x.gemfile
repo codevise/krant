@@ -2,8 +2,8 @@
 
 source "https://rubygems.org"
 
-gem "rails", "~> 5.1.0"
-gem "activeadmin", "~> 1.2.0"
-gem "rspec-rails", "~> 3.8"
+gem "rails", "~> 6.1"
+gem "activeadmin", "~> 3.0"
+gem "rspec-rails", "~> 6.0"
 
 gemspec path: "../"

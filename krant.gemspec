@@ -22,9 +22,9 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'appraisal', '~> 2.2'
   spec.add_development_dependency 'rake', '~> 12.3'
-  spec.add_development_dependency 'rspec-rails', '~> 3.8'
-  spec.add_development_dependency 'combustion', '~> 0.9.1'
-  spec.add_development_dependency 'sqlite3', '~> 1.3.6'
+  spec.add_development_dependency 'rspec-rails'
+  spec.add_development_dependency 'combustion', '~> 1.3'
+  spec.add_development_dependency 'sqlite3', '~> 1.6'
   spec.add_development_dependency 'capybara', '~> 3.0'
   spec.add_development_dependency 'factory_bot_rails', '~> 4.8'
   spec.add_development_dependency 'domino', '~> 0.11.0'
@@ -35,7 +35,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'activeadmin', ['>= 1.0', '< 4']
   spec.add_runtime_dependency 'rails', '>= 5.1'
-  spec.add_runtime_dependency 'kramdown', '~> 1.5'
+  spec.add_runtime_dependency 'kramdown', '~> 2.4'
   spec.add_runtime_dependency 'redcarpet', '~> 3.4'
   spec.add_runtime_dependency 'sprockets', '< 4'
 end

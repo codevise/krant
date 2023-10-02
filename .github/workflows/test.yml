@@ -11,6 +11,11 @@ jobs:
           - rails_5.1_active_admin_1.2
           - rails_5.x_active_admin_1.3
           - rails_5.x_active_admin_2.x
+        include:
+          - ruby-version: 3.2
+            gemfile: rails_6.1_active_admin_3.x
+          - ruby-version: 3.2
+            gemfile: rails_7.0_active_admin_3.x
     env:
       BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/${{ matrix.gemfile }}.gemfile
     steps:

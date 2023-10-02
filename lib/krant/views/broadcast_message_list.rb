@@ -4,9 +4,15 @@ module Krant
     class BroadcastMessageList < Arbre::Component
       builder_method :krant_broadcast_message_list
 
-      def build(location: nil,
-                item_class: 'krant-broadcast-messages-bar',
-                wrapper: ->(block) { div(&block) })
+      def build(options = {})
+        _build(**options)
+      end
+
+      private
+
+      def _build(location: nil,
+                 item_class: 'krant-broadcast-messages-bar',
+                 wrapper: ->(block) { div(&block) })
         messages = TranslatedBroadcastMessage.active(location: location)
 
         render = lambda do

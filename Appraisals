@@ -34,7 +34,14 @@ appraise 'rails-6.1-active-admin-3.x' do
 end
 
 appraise 'rails-7.0-active-admin-3.x' do
-  gem 'rails', '~> 7.0'
+  gem 'rails', '~> 7.0.0'
+  gem 'activeadmin', '~> 3.0'
+
+  gem 'rspec-rails', '~> 6.0'
+end
+
+appraise 'rails-7.1-active-admin-3.x' do
+  gem 'rails', '~> 7.1.0'
   gem 'activeadmin', '~> 3.0'
 
   gem 'rspec-rails', '~> 6.0'

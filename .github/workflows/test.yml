@@ -16,6 +16,8 @@ jobs:
             gemfile: rails_6.1_active_admin_3.x
           - ruby-version: 3.2
             gemfile: rails_7.0_active_admin_3.x
+          - ruby-version: 3.2
+            gemfile: rails_7.1_active_admin_3.x
     env:
       BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/${{ matrix.gemfile }}.gemfile
     steps:
